@@ -325,25 +325,23 @@ export default function Map() {
                         click: () => setSelected(p),
                       }}
                     >
-                      <Popup>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: 4,
-                          }}
-                        >
-                          <b>{p.title}</b>
-                          {p.district && (<div style={{ fontSize: 12, color: "#555" }}>{p.district}</div>
+                      <Popup className="map-popup">
+                        <div className="flex flex-col gap-1 text-xs">
+                          <div className="text-[13px] font-semibold text-gray-900">
+                            {p.title}
+                          </div>
+
+                          {p.district && (
+                            <div className="text-[11px] text-gray-500">
+                              {p.district}
+                            </div>
                           )}
+
                           <Link
                             href={`/l/${encodeURIComponent(
                               (p.slug || "").replace(/^\/+|\/+$/g, "")
                             )}`}
-                            style={{
-                              color: "#2563eb",
-                              textDecoration: "underline",
-                            }}
+                            className="mt-1 inline-flex text-[12px] font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2"
                           >
                             Детальніше
                           </Link>
