@@ -334,11 +334,9 @@ export default function Map() {
                           }}
                         >
                           <b>{p.title}</b>
-                          {p.summary && (
-                            <span style={{ opacity: 0.8, fontSize: 12 }}>
-                              {p.summary}
-                            </span>
+                          {p.district && (<div style={{ fontSize: 12, color: "#555" }}>{p.district}</div>
                           )}
+                          {p.summary && <div style={{ fontSize: 14 }}>{p.summary}</div>}
                           <Link
                             href={`/l/${encodeURIComponent(
                               (p.slug || "").replace(/^\/+|\/+$/g, "")
