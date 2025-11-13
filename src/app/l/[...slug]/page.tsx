@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import ReactMarkdown from "react-markdown";
-import MiniMap from "@/components/MiniMap";
+import MiniMapClient from "@/components/MiniMapClient";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -23,7 +23,6 @@ export default async function LocationPage({ params }: { params: ParamsPromise }
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">
-      {}
       <Link href="/" className="opacity-70 hover:opacity-100">
         ← Назад до мапи
       </Link>
@@ -34,9 +33,7 @@ export default async function LocationPage({ params }: { params: ParamsPromise }
         {data.tags?.length ? " · " + data.tags.join(" · ") : ""}
       </div>
 
-      {data.lat && data.lng && (
-        <MiniMap lat={data.lat} lng={data.lng} />
-      )}
+      {data.lat && data.lng && <MiniMapClient lat={data.lat} lng={data.lng} />}
 
       {md && <ReactMarkdown>{md}</ReactMarkdown>}
 
